@@ -1,0 +1,79 @@
+p=15
+
+orgX = 0
+leftS=0
+rightX=0
+
+
+xSpeed =3
+
+pSpeed = .1
+def setup():
+    size(800,800)
+    background(150)
+    # ellipse(125,125,100,100)
+    
+    
+def draw():
+    global orgX, leftX,rightX, xSpeed, pSpeed,p
+    background(0)
+    
+    pushMatrix()
+    translate(orgX,0)
+    
+    # update positon
+    orgX += xSpeed
+    p+= pSpeed
+    
+    #extreame positions
+    rightX = 16*p+ orgX
+    leftX= 3*p+orgX
+    
+    display()
+    popMatrix()
+    
+    
+    if(p>20):
+        pSpeed = pSpeed *-1
+    if (leftX < 0):
+        xSpeed=xSpeed *-1
+    
+    
+    #check boundary
+    if (rightX>width):
+        xSpeed= xSpeed *-1
+        
+    
+    
+    
+    fill(255)
+    text("rightX: " + str(rightX), width/2,32)
+    
+def display():
+    noStroke()
+    fill(188,13,168) 
+    rect(4*p,5*p,p,p)
+    rect(3*p,6*p,2*p,p)
+    rect(5*p,7*p,p,p)
+    rect(7*p,7*p,5*p,2*p)
+    rect(13*p,7*p,p,p)
+    rect(14*p,6*p,2*p,p)
+    rect(14*p,5*p,p,p)
+    rect(6*p,8*p,p,3*p)
+    rect(12*p,8*p,p,3*p)
+    rect(9*p,9*p,p,p)
+    rect(8*p,10*p,3*p,p)
+    rect(6*p,11*p,3*p,p)
+    rect(10*p,11*p,3*p,p)
+    rect(5*p,12*p,p,p)
+    rect(7*p,12*p,5*p,p)
+    rect(13*p,12*p,p,p)
+    rect(3*p,13*p,2*p,p)
+    rect(4*p,14*p,p,p)
+    rect(14*p,13*p,2*p,p)
+    rect(14*p,14*p,p,p)
+    rect(7*p,13*p,p,p)
+    rect(9*p,13*p,p,p)
+    rect(11*p,13*p,p,p)    
+      
+      
