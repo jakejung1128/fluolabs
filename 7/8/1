@@ -1,0 +1,27 @@
+inc=.01
+xoff=0
+
+
+
+def setup():
+    size(200,200)
+
+
+def draw():
+    global xoff
+    loadPixels()
+    for x in range (width):
+        yoff=0
+        for y in range (height):
+            r= noise (yoff,xoff)
+            r= map(r,0,1,0,256)
+            col= color(r,r,r)
+            index = x + y*width
+            pixels[ index] = col
+            yoff += inc
+    
+        xoff += inc        
+    updatePixels()
+    noLoop()
+    print(frameRate)
+        
